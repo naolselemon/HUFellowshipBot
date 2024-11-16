@@ -1,6 +1,3 @@
-Sure! Here’s a **README** specifically designed for pushing your project to **GitHub** or another repository where others can easily understand what your project is about, how to run it, and contribute if necessary. This version is more focused on **documentation for public sharing**, which can give potential collaborators or users a good understanding of your project.
-
----
 
 # **HUDigitalGospel Telegram Bot**
 
