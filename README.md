@@ -108,9 +108,3 @@ To contribute:
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
-
-### **Screenshots/Examples**
-
-Here you can add any images or GIFs demonstrating how the bot works, like before and after images or sample photos with the overlay.
-
----
