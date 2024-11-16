@@ -114,5 +114,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Here you can add any images or GIFs demonstrating how the bot works, like before and after images or sample photos with the overlay.
 
 ---
-
-Feel free to make any modifications as per your needs! This README is designed to give a clean, detailed overview of your bot, with instructions for both setup and contribution.
