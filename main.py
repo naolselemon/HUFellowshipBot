@@ -5,12 +5,16 @@ import requests
 import io
 import os
 from dotenv import load_dotenv
+from flask import Flask, request
+import asyncio
 
 load_dotenv()
 
 TOKEN = os.getenv("BOT_TOKEN")
 
 BASE_URL = f'https://api.telegram.org/bot{TOKEN}/'
+
+app = Flask(__name__)
 
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text("Hello, send me a Photo and I will provide you HUDigitalGospel Graphics!")
@@ -49,13 +53,30 @@ def generate_template(photo_data):
 
 
     return template_image
+
+@app.route('/webhook', methods=['POST'])
+
+def webhook():
+    json_str = request.get_data().decode('utf-8')
+    update = update.de_json(json_str, None)
+
+    Application.process_update(update)
+    return "ok"
+
 def main():
     application = Application.builder().token(TOKEN).connect_timeout(10).read_timeout(10).build()
 
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.PHOTO, handle_photo))
+    
+    webhook_url = "https://hufellowshipbot.onrender.com/webhook"
 
-    application.run_polling()
+
+    async def set_webhook_and_run():
+        await application.bot.set_webhook(webhook_url)
+
+        app.run(host="0.0.0.0", port=5000)
+    asyncio.run(set_webhook_and_run())
 
 if __name__ == '__main__':
     main()
